@@ -41,12 +41,21 @@ def prepare_input(file_name):
 
 def translate(text: str):
     new_text = ''
+    # Goes letter by letter through the text string
     for index, letter in enumerate(text):
+        # Letter is a digit? add the letter to the translation string
+        # skip the rest of the loop
         if letter in digits:
             new_text += letter
             continue
+
+        # Goes through all entries of the dict if the next letters matches an entry
         for key in int_dict.keys():
+            # Is the given index of the find method == the index from the enumeration?
+            # if not just check the next int_dict entry
             if text.find(key, index) == index:
+                # put the int from the dictionary into the translation string
+                # and leave the dict iteration to get the next letter in the text string
                 new_text += str(int_dict[key])
                 break
 
@@ -56,7 +65,10 @@ def translate(text: str):
 def solve_a():
     sum_up = 0
     for line in riddle:
+        # Remove all unnecessary letters from beginning and end
         new_line = line.strip(unwanted_chars)
+        # first and last characters must now be digits
+        # and can be concatenated, casted to int and added to the final sum
         sum_up += int(new_line[0] + new_line[-1])
     return sum_up
 
@@ -65,6 +77,8 @@ def solve_b():
     sum_up = 0
     for line in riddle:
         new_line = translate(line)
+        # first and last characters must now be digits
+        # and can be concatenated, casted to int and added to the final sum
         sum_up += int(new_line[0] + new_line[-1])
     return sum_up
 
