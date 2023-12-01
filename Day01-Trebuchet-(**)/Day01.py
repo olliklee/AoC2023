@@ -68,7 +68,7 @@ def solve_a():
         # Remove all unnecessary letters from beginning and end
         new_line = line.strip(unwanted_chars)
         # first and last characters must now be digits
-        # and can be concatenated, casted to int and added to the final sum
+        # and can be concatenated, cast to int and added to the final sum
         sum_up += int(new_line[0] + new_line[-1])
     return sum_up
 
@@ -78,7 +78,7 @@ def solve_b():
     for line in riddle:
         new_line = translate(line)
         # first and last characters must now be digits
-        # and can be concatenated, casted to int and added to the final sum
+        # and can be concatenated, cast to int and added to the final sum
         sum_up += int(new_line[0] + new_line[-1])
     return sum_up
 
