@@ -18,25 +18,22 @@ def prepare_input(file_name):
 
 def solve_a():
     id_sum = 0
-    possible = {'red': 12,
-                'green': 13,
-                'blue': 14}
+    max_possible = {'red': 12, 'green': 13, 'blue': 14}
 
     for game in puzzle:
-        invalid = False
         game_id = int(game.split(':')[0].replace('Game ', ''))
-
         game_results = game.split(':')[1].strip().split(';')
 
+        valid = True
         for turn in game_results:
             color_dict = {c.split()[1]: int(c.split()[0]) for c in turn.split(', ')}
 
-            for key in possible.keys():
-                if color_dict.get(key, 0) > possible[key]:
-                    invalid = True
+            for key, value in color_dict.items():
+                if value > max_possible[key]:
+                    valid = False
                     break
 
-        if not invalid:
+        if valid:
             id_sum += game_id
 
     return id_sum
@@ -59,6 +56,7 @@ def solve_b():
         id_sum += maxred * maxblue * maxgreen
 
     return id_sum
+
 
 puzzle = prepare_input(filename)
 run(day, year, solve_a, solve_b)
