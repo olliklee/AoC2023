@@ -6,8 +6,8 @@ def run(d: str, y: str, func_a, func_b):
     Day and year as String,
     Two functions for part1 and part2.
     It prints out the results of the two functions and the time it took to solve it."""
-
-    print(f"\nResults from AoC {y} - Day {d}\n{'-' * 30}")
+    dotted_line = '-' * 38
+    print(f"\nResults from AoC {y} - Day {d}\n{dotted_line}")
 
     start = perf_counter()
     print(f"Day {d} - Part 1: {func_a()}")
@@ -15,8 +15,8 @@ def run(d: str, y: str, func_a, func_b):
     print(f"Day {d} - Part 2: {func_b()}")
     stop = perf_counter()
 
-    print(f"\nPerformance\n{'-' * 30}")
+    print(f"\nPerformance\n{dotted_line}")
     print(f"Part 1: {(lap - start) * 100:.6f} ms"
           f"Part 2: {(stop - lap) * 100:.6f} ms")
-    print(f"{'-' * 30}\nGesamt: {(stop - start) * 100:.6f} ms")
+    print(f"{dotted_line}\nGesamt: {(stop - start) * 100:.6f} ms")
 
