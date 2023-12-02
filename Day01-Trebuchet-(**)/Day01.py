@@ -1,15 +1,13 @@
 # # #  Solutions of Advent of Code
 # # #  Oliver Kleemann
 
-from aoc_helpers import run
+from aoc_helpers import run_puzzles
 
 year, day = "2023", "01"
 final = f"Day{day}_input.txt"
 test = f"Day{day}_input_.txt"
 filename = final
 
-unwanted_chars = "abcdefghijklmnopqrstuvwxyz"
-digits = "0123456789"
 int_dict = {"one": 1, "two": 2, "three": 3,
             "four": 4, "five": 5, "six": 6,
             "seven": 7, "eight": 8, "nine": 9,
@@ -27,13 +25,13 @@ def translate(text: str):
     new_text = ''
     # Goes letter by letter through the text string
     for index, letter in enumerate(text):
-        # Letter is a digit? add the letter to the translation string
+        # Letter is a digit? Add the letter to the translation string
         # skip the rest of the loop
-        if letter in digits:
+        if letter.isdigit():
             new_text += letter
             continue
 
-        # Goes through all entries of the dict if the next letters matches an entry
+        # Goes through all entries of the dict if the following letters matches an entry
         for key in int_dict.keys():
             # Is the given index of the find method == the index from the enumeration?
             # if not just check the next int_dict entry
@@ -48,6 +46,8 @@ def translate(text: str):
 
 def solve_a():
     sum_up = 0
+    unwanted_chars = "abcdefghijklmnopqrstuvwxyz"
+
     for line in puzzle:
         # Remove all unnecessary letters from beginning and end
         new_line = line.strip(unwanted_chars)
@@ -68,4 +68,4 @@ def solve_b():
 
 
 puzzle = prepare_input(filename)
-run(day, year, solve_a, solve_b)
+run_puzzles(day, year, solve_a, solve_b)

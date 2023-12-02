@@ -1,6 +1,6 @@
 from time import perf_counter
 
-def run(d: str, y: str, func_a, func_b):
+def run_puzzles(d: str, y: str, func_a, func_b):
     """ This function is specially for the adventofcode project.
     The parameters are:
     Day and year as String,

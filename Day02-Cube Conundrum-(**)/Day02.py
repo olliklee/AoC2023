@@ -1,7 +1,7 @@
 # # #  Solutions of Advent of Code
 # # #  Oliver Kleemann
 
-from aoc_helpers import run
+from aoc_helpers import run_puzzles
 
 year, day = "2023", "02"
 final = f"Day{day}_input.txt"
@@ -59,4 +59,4 @@ def solve_b():
 
 
 puzzle = prepare_input(filename)
-run(day, year, solve_a, solve_b)
+run_puzzles(day, year, solve_a, solve_b)
