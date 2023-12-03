@@ -2,6 +2,7 @@
 # # #  Oliver Kleemann
 
 from aoc_helpers import run_puzzles
+from math import prod
 
 year, day = "2023", "03"
 final = f"Day{day}_input.txt"
@@ -73,22 +74,19 @@ def solve_a():
 
 def solve_b():
     # Alle Asterisks in der Puzzle Matrix finden
-    signs = [(y, x) for y in range(size_y) for x in range(size_x) if puzzle[y][x] == '*']
+    gears = [(y, x) for y in range(size_y) for x in range(size_x) if puzzle[y][x] == '*']
     # Gehe alle gefundenen Zeichen durch und speichere die Startkoordinaten
     # jeder einzelnen Zahl in einem Set
     result = 0
-    for asterisk in signs:
-        adj = get_adjacents(*asterisk)
-        temp_set = set()
+    for gear in gears:
+        adj = get_adjacents(*gear)
+        adj_nums_set = set()
         for y, x in adj:
             if puzzle[y][x].isdigit():
-                temp_set.add(get_number_start(x, y))
+                adj_nums_set.add(get_number_start(x, y))
         # Ist es ein Gear mit genau zwei Nachbarn?
-        if len(temp_set) == 2:
-            product = 1
-            for cood in temp_set:
-                product *= get_int_at(*cood)
-            result += product
+        if len(adj_nums_set) == 2:
+            result += prod([get_int_at(*cood) for cood in adj_nums_set])
 
     return result
 

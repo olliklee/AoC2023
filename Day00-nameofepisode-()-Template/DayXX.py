@@ -6,7 +6,7 @@ from aoc_helpers import run_puzzles
 year, day = "YYYY", "XX"
 final = f"Day{day}_input.txt"
 test = f"Day{day}_input_.txt"
-filename = final
+filename = test
 
 
 def prepare_input(file_name):
@@ -23,5 +23,6 @@ def solve_a():
 def solve_b():
     return 0
 
+### ----------- Start ------------- ###
 
 run_puzzles(day, year, solve_a, solve_b)
