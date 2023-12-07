@@ -2,7 +2,7 @@
 # # #  Oliver Kleemann
 
 from aoc_helpers import run_puzzles
-from math import pow, log2
+from math import pow
 from collections import defaultdict
 
 year, day = "2023", "04"
