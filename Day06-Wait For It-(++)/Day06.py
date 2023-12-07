@@ -22,14 +22,13 @@ def distance(push, time):
 
 
 def solve_a():
-    times, distances = puzzle[0], puzzle[1]
+    times, dists = puzzle[0], puzzle[1]
     product = 1
     for i, time in enumerate(times):
-        result = [distance(push, times[i]) for push in range(1, time - 1) if distance(push, times[i]) > distances[i]]
+        result = [distance(push, times[i]) for push in range(1, time - 1) if distance(push, times[i]) > dists[i]]
         product *= len(result)
 
     return product
-
 
 def solve_b():
     time = int("".join(map(str, puzzle[0])))
@@ -47,6 +46,14 @@ def solve_b():
             break
 
     return result
+
+# Slower variant
+# def solve_b():
+#     time = int("".join(map(str, puzzle[0])))
+#     dist = int("".join(map(str, puzzle[1])))
+#     result = [distance(push, time) for push in range(14, time - 14) if distance(push, time) > dist]
+#
+#     return len(result)
 
 
 ### ----------- Start ------------- ###
