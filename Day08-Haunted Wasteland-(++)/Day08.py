@@ -49,7 +49,7 @@ def solve_b() -> int:
             if len(step_list) == 6:
                 done = True
 
-    return lcm(*step_list)
+    return lcm(*step_list) # lowest common multiplicator
 
 
 ### ----------- Start ------------- ###
